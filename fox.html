@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zcharyzl Personal Page</title>
+    <script src="./js/jquery-1.12.2.js" charset="utf-8"></script>
+    <script type="text/javascript" src="./js/fox.js"></script>
+
+    <link rel="stylesheet" href="./css/animate.min.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="./css/normalize.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="./css/main.css" media="screen" title="no title" charset="utf-8">
+
+    <script>
+        $(function() {
+            var elmArr = [],
+                $win = $(window);
+            $(".visible").each(function(i, elm) {
+                $(elm).data("ot", $(elm).offset().top);
+                elmArr.push(elm);
+            });
+
+            dealClass(1);
+            $win.on("scroll", dealClass);
+
+            function dealClass(isRemove) {
+                var top = $win.height() + $win.scrollTop();
+                if (isRemove != 1) { //滚动页面时的判断，并添加class="visible"
+                    for (var i = 0, $elem; i < elmArr.length; i++) {
+                        $elem = $(elmArr[i]);
+                        if ($elem.data("ot") <= top) {
+                            $elem.addClass("visible");
+                            elmArr.splice(i, 1);
+                            --i;
+                        }
+                    }
+                } else { //初始化页面时的判断，并删除class="visible"
+                    for (var i = 0, $elem; i < elmArr.length; i++) {
+                        $elem = $(elmArr[i]);
+                        if ($elem.data("ot") >= top) {
+                            $elem.removeClass("visible");
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+</head>
+
+<body>
+    <div class="b-content">
+
+        <div id="" class="fr_1st_block">
+            <div id="" class="fr_your_name fr_title">
+                <div id="zacharyzl" class="animated fadeInUp">ZACHARY / ZL</div>
+            </div>
+        </div>
+        <!--
+
+
+     -->
+        <div id="" class="fr_2nd_block">
+            <div id="" class="fr_who_you_are fr_paragraph_text">
+                <div class="">ILLUSTRATOR LIVING IN WUHAN CHINA
+
+                </div>
+            </div>
+        </div>
+        <!--
+
+
+     -->
+        <div id="" class="fr_3rd_block">
+
+        </div>
+        <!--
+
+
+     -->
+        <div id="" class="fr_4th_block">
+            <div id="" class="fr_what_you_do fr_paragraph_text">
+                <div class="">AVAILABLE FOR WORK AT FE-D
+                </div>
+            </div>
+        </div>
+        <!--
+
+
+     -->
+        <div id="" class="fr_5th_block">
+
+        </div>
+        <!--
+
+
+     -->
+        <div id="" class="fr_6th_block">
+            <div id="" class="fr_contacts fr_paragraph_text">
+                <div class="">FOR ALL ENQUIRIES:
+                    <br><span id="email">E-mail:zdlzachary@gmail.com</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="" class=" fr_7th_block">
+            <div id="" class="fr_social_text fr_paragraph_text">
+                <div id="social" class="visible">SOCIAL</div>
+            </div>
+            <div class="icon visible">
+                <div id="icon1" class="">
+
+                </div>
+                <div id="icon2" class="">
+
+                </div>
+                <div id="icon3" class="">
+
+                </div>
+                <div id="icon4" class="">
+
+                </div>
+            </div>
+        </div>
+        <!--
+
+         -->
+        <div class="bottombar">
+            <div class="maded">
+                <p>
+                    MADED BY ZACHARY-Zl ©2016
+                </p>
+            </div>
+            <div class="resume">
+                <span class="re" href="#">RESUME : </span>
+                <a class="re" href="./English-version.pdf">English-Version /</a>
+                <a class="re" href="./Chinese-version.pdf">&nbspChinese-Version</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
